@@ -1,0 +1,2244 @@
+<!DOCTYPE html>
+<html lang="es">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miguel Gamer - Tienda de Juegos</title>
+<link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap](https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap)" rel="stylesheet">
+    <style>
+               :root {
+            --fondo-base: #070b13; 
+            --tarjeta: #111a24; 
+            --azul-ps: #00439c;
+            --turquesa: #00e5ff; 
+            --verde-wa: #1a9c3d;
+            --texto: #ffffff; 
+            --texto-secundario: #a0aec0; 
+            --rojo-borrar: #ff4444;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--fondo-base);
+            color: var(--texto);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+
+        header {
+            background: linear-gradient(90deg, #111111, #1a2933);
+            color: white;
+            padding: 25px 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--turquesa);
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2); 
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px var(--turquesa), 0 0 20px var(--turquesa);
+        }
+
+        header p {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #b0bec5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+         /* Diseño base de los botones del menú */
+        .menu-categorias a, .menu-categorias button { 
+            text-decoration: none; 
+            background-color: #ffffff; 
+            color: #2d2f38; /* Letras bien negras */
+            border: 1px solid #cccccc; 
+            padding: 8px 16px; 
+            border-radius: 20px; 
+            font-weight: 800; /* Letra un poco más gruesa para que resalte más */
+            cursor: pointer; 
+            transition: 0.3s; 
+        }
+        }
+        .menu-categorias a { text-decoration: none; background-color: white; color: var(--texto-secundario); border: 1px solid #ccc; padding: 8px 16px; border-radius: 20px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .menu-categorias a.activo { background-color: var(--azul-ps); color: white; border-color: var(--azul-ps); box-shadow: 0 0 8px rgba(0, 67, 156, 0.5); }
+        .menu-categorias a.btn-whatsapp-menu { background-color: var(--verde-wa); color: white; border-color: var(--verde-wa); box-shadow: 0 0 8px rgba(37, 211, 102, 0.5); }
+        .mensaje-sin-juegos { grid-column: 1 / -1; text-align: center; background: white; padding: 24px; border-radius: 12px; color: var(--texto-secundario); font-weight: bold; }
+
+        .menu-categorias button.activo {
+            background-color: var(--azul-ps);
+            color: white;
+            border-color: var(--azul-ps);
+            box-shadow: 0 0 8px rgba(0, 67, 156, 0.5);
+        }
+
+        .menu-categorias button.btn-whatsapp-menu {
+            background-color: var(--verde-wa);
+            color: white;
+            border-color: var(--verde-wa);
+            box-shadow: 0 0 8px rgba(37, 211, 102, 0.5);
+        }
+
+        .horarios-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #003377;
+            margin: 15px 15px 5px 15px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--turquesa);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .horarios-container strong {
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 8px;
+            color: var(--azul-ps);
+            text-transform: uppercase;
+        }
+
+        .mensaje-confianza {
+            
+    background: linear-gradient(135deg, #001f4d, #00439c);
+    margin: 10px 15px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid var(--verde-wa);
+    box-shadow: 0 4px 15px rgba(0, 67, 156, 0.4);
+}
+
+.mensaje-confianza h3 {
+    color: #ffffff !important;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.mensaje-confianza p {
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+        }
+
+        .mensaje-confianza h3 {
+            color: var(--texto);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .mensaje-confianza p {
+            color: var(--texto-secundario);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .banner-novedades {
+            background: linear-gradient(135deg, #1a2933, #111111);
+            color: white;
+            margin: 10px 15px 15px 15px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--turquesa);
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.15);
+        }
+
+        .banner-novedades h3 {
+            color: var(--turquesa);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .banner-novedades ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .banner-novedades li {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .banner-novedades li::before {
+            content: '🔥';
+            margin-right: 8px;
+        }
+
+        .main-content {
+            padding: 0 15px 15px 15px;
+            flex-grow: 1;
+        }
+
+        .grid-juegos {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+               .tarjeta-juego {
+            background-color: var(--tarjeta);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .encabezado-juego {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .encabezado-juego h4 {
+            font-size: 1.15rem;
+            margin: 0;
+            color: var(--texto);
+            font-weight: 800;
+        }
+
+        .etiqueta {
+            background-color: var(--azul-ps);
+            color: white;
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+                /* DISEÑO PIE DE PÁGINA (FOOTER) */
+        .footer-tienda {
+            background: linear-gradient(180deg, #070b13 0%, #001f4d 100%);
+            color: #ffffff;
+            padding: 40px 20px 20px;
+            margin-top: 40px;
+            border-top: 3px solid var(--turquesa);
+            box-shadow: 0 -5px 20px rgba(0, 229, 255, 0.1);
+        }
+        .footer-contenido {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .footer-logo {
+            text-align: center;
+        }
+        .footer-logo img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.5));
+        }
+        .footer-logo p {
+            font-size: 0.85rem;
+            color: #b0bec5;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .footer-seccion {
+            border-left: 3px solid var(--turquesa);
+            padding-left: 15px;
+        }
+        .footer-seccion h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-contacto p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #e0e0e0;
+        }
+        .footer-categorias {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .footer-categorias a {
+            color: #b0bec5;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+        .footer-categorias a:hover {
+            color: var(--turquesa);
+        }
+        .footer-pagos {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 10px;
+        }
+        .footer-pagos h4 {
+            font-size: 0.9rem;
+            color: #b0bec5;
+            margin-bottom: 15px;
+        }
+        .iconos-pagos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        .iconos-pagos img {
+            height: 25px;
+            background: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .sello-seguridad {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--verde-wa);
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+        .footer-legal {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666666;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+        }
+
+
+        /* DISEÑO DE IMAGEN FIJO Y SEGURO */
+        .imagen-juego {
+            width: 50% !important; 
+            height: auto !important; 
+            max-height: 250px;
+            object-fit: contain; 
+            margin: 20px auto !important; 
+            display: block !important;
+            border-radius: 6px;
+            box-shadow: 0 20px 16px rgba(0,0,0,0.2); 
+        }
+
+        .info-juego {
+            padding: 15px;
+            text-align: center; 
+            border-top: 1px solid #f5f5f5;
+        }
+
+        .precio {
+            font-size: 1.6rem;
+            color: #1a9c3d;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+               .btn-agregar {
+            width: 100%;
+            background-color: var(--azul-ps);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-weight: 800;
+            border-radius: 8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+        .btn-agregar:hover {
+            background-color: #005bb5;
+            box-shadow: 0 4px 15px rgba(0, 67, 156, 0.4);
+        }
+        .btn-agregar:active {
+            background-color: var(--turquesa);
+            color: #000;
+        }
+
+
+        /* Botón flotante para abrir el carrito */
+        .btn-flotante-carrito {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--azul-ps);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contador-carrito {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff0000;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid white;
+        }
+
+        /* Ventana Modal del Carrito */
+        .modal-carrito {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1001;
+            justify-content: center;
+            align-items: flex-end; 
+        }
+
+        .contenido-modal {
+            background: linear-gradient(135deg, #1a2933, #111111);
+            border-top: 3px solid var(--turquesa);
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px 20px 0 0;
+            padding: 20px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            animation: deslizarArriba 0.3s ease-out;
+            color: white;
+        }
+
+        @keyframes deslizarArriba {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .cabecera-modal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #333333;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .cabecera-modal h3 {
+            font-size: 1.4rem;
+            color: var(--turquesa);
+        }
+
+        .btn-cerrar-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .lista-juegos-carrito {
+            list-style: none;
+            overflow-y: auto;
+            flex-grow: 1;
+            margin-bottom: 15px;
+            padding: 0;
+        }
+
+        .item-carrito {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #333333;
+        }
+
+        .item-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-nombre {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .item-precio {
+            color: #b0bec5;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .btn-borrar-item {
+            background-color: transparent;
+            border: none;
+            color: var(--rojo-borrar);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .resumen-modal {
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 1px solid #333333;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .btn-comprar {
+            width: 100%;
+            background-color: var(--verde-wa);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+    </style>
+</head>
+<body>
+<!-- Cabecera limpia y sin neón forzado -->
+<header style="
+    background-color: #070b13;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    z-index: 10;
+">
+    <!-- Logo a la izquierda en 130px -->
+    <div style="flex-shrink: 0;">
+        <img src="https://i.ibb.co/JjVVGySW/1000991197-fotor-bg-remover-2026101515555.png" 
+             alt="Logo Mundo Joystick" 
+             style="width: 120px; height: auto;">
+    </div>
+
+    <!-- Título y eslogan a la derecha con anulación de luces -->
+    <div style="text-align: left;">
+        <h1 style="
+            margin: 0;
+            font-size: 1.8em; 
+            font-weight: 900;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff !important;
+            text-shadow: none !important;
+            text-transform: uppercase;
+        ">
+            MUNDO JOYSTICK
+        </h1>
+        <p style="
+            margin: 5px 0 0 0;
+            font-size: 0.85em;
+            font-weight: 700;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff !important;
+            text-shadow: none !important;
+            text-transform: uppercase;
+        ">
+            TODO LO QUE TU PS4 Y PS5 NECESITAN
+        100% SEGURO Y GARANTIZADO</p>
+    </div>
+</header>
+
+        <div class="menu-categorias" style="display: flex; overflow-x: auto; background-color: rgba(255, 255, 255, 0.8); padding: 12px 15px; gap: 10px; white-space: nowrap;">
+    <a href="TODOS.html" data-seccion="todos">Todos</a>
+    <a href="PS4.html" data-seccion="ps4">PS4</a>
+    <a href="PS5.html" data-seccion="ps5">PS5</a>
+    <a href="PS%20PLUS.html" data-seccion="plus">PS Plus</a>
+    <a href="PROMOS.html" data-seccion="promos">Promos</a>
+    <a onclick="consultarDuda()" class="btn-whatsapp-menu" style="cursor: pointer;">💬 Consultas</a>
+</div>
+<!-- Barra de Búsqueda -->
+<div style="padding: 15px; text-align: center;">
+    <input type="text" id="buscador-juegos" placeholder="🔍 Buscar juego (ej. Elden Ring, FC 27)..." style="
+        width: 100%; 
+        max-width: 500px; 
+        padding: 12px 20px; 
+        border-radius: 25px; 
+        border: 2px solid #00d2ff; 
+        background-color: #ffffff; 
+        color: #222222; 
+        font-size: 1em; 
+        font-family: 'Roboto', sans-serif; 
+        font-weight: bold;
+        outline: none; 
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    ">
+</div>
+
+
+    </div>
+
+    <div class="horarios-container">
+        <strong>🕒 Horarios de Atención y Soporte</strong>
+        <p>Lunes a Jueves: 11:30 a 21:00 hs</p>
+        <p>Viernes: 11:30 a 20:00 hs</p>
+        <p>Sábados, Domingos y Feriados: 12:30 a 19:00 hs</p>
+    </div>
+
+<div class="mensaje-confianza ocultar-al-buscar">
+    <h3>¡Hola! Soy Miguel 👋</h3>
+    <p>Más que un vendedor, soy tu amigo de confianza. Estoy acá para asesorarte en lo que necesites y ayudarte a elegir tu próximo juego. ¡Escribime con total confianza!</p>
+</div>
+
+   <div class="banner-novedades ocultar-al-buscar">
+    <h3>JUEGOS PS4</h3>
+    <ul>
+        <li>⚽ Ya llegó el <strong>FC 27</strong>. ¡Llevalo hoy y empezá a jugar al instante!</li>
+        <li>🎮 <strong>Los mejores juegos en un solo lugar</strong>. Eleji el tuyo y empezá una nueva aventura.</li>
+    </ul>
+    
+    <!-- Nueva casilla de consulta -->
+    <div style="margin-top: 15px; padding: 15px; border-radius: 8px; border: 1px dashed currentColor; text-align: center;">
+        <p style="margin-bottom: 12px; font-weight: bold;">
+            ¿Buscás un juego y no está en esta lista? No dudes en mandarme un mensaje y preguntar si lo tengo ya que cuento con más de 1000 juegos para Ps4.
+        </p>
+        <a href="https://wa.me/5493875524694?text=%C2%A1Hola%20Miguel%21%20%F0%9F%91%8B%20Estoy%20buscando%20un%20juego%20de%20PS4%20que%20no%20encontr%C3%A9%20en%20el%20cat%C3%A1logo%20%F0%9F%8E%AE.%20%C2%BFMe%20dec%C3%ADs%20si%20ten%C3%A9s%20el...%3F" target="_blank" style="display: inline-block; background-color: #1a6c2d; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">
+            📱 Consultar disponibilidad
+        </a>
+    </div>
+</div>
+
+        </ul>
+    </div>
+
+    <main class="main-content">
+        <div class="grid-juegos">
+            
+            <article class="tarjeta-juego">
+                <div class="encabezado-juego">
+                    <h4>FC 27</h4>
+                    <span class="etiqueta">Ps4</span>
+                </div>
+                <img src="https://i.ibb.co/0jCj8C1T/images-2.jpg" alt="FC 27 PS4" class="imagen-juego">
+                <div class="info-juego">
+                    <p class="precio">$46.000 CUENTA PRIMARIA</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('FC 27 Ps4 primaria', 46000)">Añadir al carrito</button>
+                </div>
+                </article>
+                
+       <article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>A Way Out</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$12.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('A Way Out Ps4 primaria', 12000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>ARK: Survival Evolved</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('ARK: Survival Evolved Ps4 primaria', 25000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Assassin's Creed Mirage PS4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Assassin\'s Creed Mirage PS4 Ps4 primaria', 25000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Assassin's Creed: Odyssey</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$13.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Assassin\'s Creed: Odyssey Ps4 primaria', 13500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Assassin's Creed: Origins</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$17.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Assassin\'s Creed: Origins Ps4 primaria', 17000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Assassins Creed Valhalla</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$17.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Assassins Creed Valhalla Ps4 primaria', 17000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Batman: Arkham Collection</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$56.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Batman: Arkham Collection Ps4 primaria', 56500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Batman: Arkham Knight</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$17.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Batman: Arkham Knight Ps4 primaria', 17000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Battlefield 1</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$17.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Battlefield 1 Ps4 primaria', 17000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Battlefield 2042</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$16.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Battlefield 2042 Ps4 primaria', 16500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Battlefield 4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$18.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Battlefield 4 Ps4 primaria', 18000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Battlefield 5 </h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$22.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Battlefield 5 Ps4 primaria', 22000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Bloodborne</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$26.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Bloodborne Ps4 primaria', 26000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Bus Simulator 21</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$32.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Bus Simulator 21 Ps4 primaria', 32000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Call Of Duty Cold War</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$55.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Call Of Duty Cold War Ps4 primaria', 55500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Call Of Duty Modern Warfare 2 PS4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Call Of Duty Modern Warfare 2 PS4 Ps4 primaria', 25000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Call Of Duty Modern Warfare 3 PS4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$35.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Call Of Duty Modern Warfare 3 PS4 Ps4 primaria', 35000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Call of Duty: Black Ops III - Zombies Chronicles</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$31.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Call of Duty: Black Ops III - Zombies Chronicles Ps4 primaria', 31000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Call of Duty®: Black Ops 6 PS4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$31.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Call of Duty®: Black Ops 6 PS4 Ps4 primaria', 31000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Crash Team Racing</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$19.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Crash Team Racing Ps4 primaria', 19000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Crash Trilogy</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$19.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Crash Trilogy Ps4 primaria', 19000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Cuphead</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$19.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Cuphead Ps4 primaria', 19000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Cyberpunk 2077</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Cyberpunk 2077 Ps4 primaria', 25000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Dakar 18</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$34.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Dakar 18 Ps4 primaria', 34000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Dark Souls: Remastered</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$40.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Dark Souls: Remastered Ps4 primaria', 40500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Days Gone</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$36.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Days Gone Ps4 primaria', 36000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Dead by Daylight - Special Edition</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$35.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Dead by Daylight - Special Edition Ps4 primaria', 35000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Demon Slayer -Kimetsu no Yaiba- The Hinokami Chronicles 2</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$40.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Demon Slayer -Kimetsu no Yaiba- The Hinokami Chronicles 2  Ps4 primaria', 40000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Detroit: Become Human</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$27.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Detroit: Become Human Ps4 primaria', 27000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Dragon Ball Z - Xenoverse 2</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Dragon Ball Z - Xenoverse 2 Ps4 primaria', 25500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Dragon Ball Z: Kakarot</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$24.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Dragon Ball Z: Kakarot Ps4 primaria', 24000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Dying Light 2 Stay Human</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$55.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Dying Light 2 Stay Human Ps4 primaria', 55500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Dying Light: The Following Enchanced Edition</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$35.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Dying Light: The Following Enchanced Edition Ps4 primaria', 35000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>EA FC 24 PS4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$15.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('EA FC 24 PS4 Ps4 primaria', 15000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>EA FC 25 PS4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$18.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('EA FC 25 PS4 Ps4 primaria', 18000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>EA FC 26 PS4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('EA FC 26 PS4 Ps4 primaria', 25000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Elden Ring PS4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$36.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Elden Ring PS4 Ps4 primaria', 36000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>ELDEN RING Shadow of the Erdtree </h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$40.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('ELDEN RING Shadow of the Erdtree PS4 Ps4 primaria', 40000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>F1® 22 Standard Edition </h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$24.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('F1® 24 Standard Edition PS4 Ps4 primaria', 24000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>F1® 24 Standard Edition </h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$27.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('F1® 24 Standard Edition PS4 Ps4 primaria', 27500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Far Cry 3 - Classic Edition</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$18.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Far Cry 3 - Classic Edition Ps4 primaria', 18000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Far Cry 4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$17.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Far Cry 4 Ps4 primaria', 17000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Far Cry 5</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$17.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Far Cry 5 Ps4 primaria', 17000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Far Cry Primal </h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$33.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Far Cry Primal Ps4 primaria', 33500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>FIFA 23</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$13.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('FIFA 23 Ps4 primaria', 13000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Final Fantasy VIII - Remastered</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$26.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Final Fantasy VIII - Remastered Ps4 primaria', 26000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Gang Beasts</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$17.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Gang Beasts Ps4 primaria', 17500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Ghost of Tsushima Director´s Cut</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$56.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Ghost of Tsushima Director´s Cut Ps4 primaria', 56000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>God of War</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('God of War Ps4 primaria', 25000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>God of War 3 Remastered</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('God of War 3 Remastered Ps4 primaria', 25000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>God Of War Ragnarok PS4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$40.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('God Of War Ragnarok PS4 Ps4 primaria', 40500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Gran Turismo 7</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$35.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Gran Turismo 7 Ps4 primaria', 35000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>GTA Trilogy Definitve</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$55.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('GTA Trilogy Definitve Ps4 primaria', 55000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>GTA V</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$19.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('GTA V Ps4 primaria', 19000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>GTA Vice City</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$24.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('GTA V Ps4 primaria', 24500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Hogwarts Legacy Harry Potter</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+         <p class="precio">$56.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Hogwarts Legacy Harry Potter Ps4 primaria', 56000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Horizon Forbidden West</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$55.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Horizon Forbidden West Ps4 primaria', 55000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Horizon Zero Dawn - Complete Edition</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Horizon Zero Dawn - Complete Edition Ps4 primaria', 25500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Injustice 2 - Standard Edition</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Injustice 2 - Standard Edition Ps4 primaria', 25000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>It Takes Two</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$16.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('It Takes Two Ps4 primaria', 16000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Lego Marvel Super Heroes 2</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Lego Marvel Super Heroes 2 Ps4 primaria', 25000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Lego Star Wars Skywalker Saga</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$20.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Lego Star Wars Skywalker Saga PS4 Ps4 primaria', 20000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Little Nightmares 2</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$24.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Little Nightmares 2 Ps4 primaria', 24000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Marvel Spiderman : Miles Morales</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$26.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Marvel Spiderman : Miles Morales Ps4 primaria', 26500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Marvel's Spiderman: GOTY Edition</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$24.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Marvel\'s Spiderman: GOTY Edition Ps4 primaria', 24000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Minecraft</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$17.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Minecraft Ps4 primaria', 17000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Minecraft Dungeons</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$26.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Minecraft Dungeons Ps4 primaria', 26500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Mortal Kombat 11 Ultimate</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$11.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Mortal Kombat 11 Ultimate Ps4 primaria', 11000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Mortal Kombat XL</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$11.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Mortal Kombat XL Ps4 primaria', 11500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Naruto Shippuden: Ultimate Ninja Storm 4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$57.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Naruto Shippuden: Ultimate Ninja Storm 4 Ps4 primaria', 57000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>NBA 2K26 </h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$18.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('NBA 2K26  Ps4 primaria', 18000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Need for Speed: Heat</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$55.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Need for Speed: Heat Ps4 primaria', 55000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Need for Speed: Payback</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$15.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Need for Speed: Payback Ps4 primaria', 15000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Overcooked! 2</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$16.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Overcooked! 2 Ps4 primaria', 16500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Outcast - Second Contact</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$40.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Outcast - Second Contact Ps4 primaria', 40000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Plantas vs. Zombies Garden Warfare 2 - Standard Edition</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$24.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Plantas vs. Zombies Garden Warfare 2 - Standard Edition Ps4 primaria', 24000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Red Dead Redemption 2</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$55.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Red Dead Redemption 2 Ps4 primaria', 55000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Red Dead Redemption Remastered</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$48.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Red Dead Redemption Remastered Ps4 primaria', 48500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Resident Evil 2 REMAKE</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$14.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Resident Evil 2 REMAKE Ps4 primaria', 14000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Resident Evil 3 REMAKE</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$14.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Resident Evil 3 REMAKE Ps4 primaria', 14000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Resident Evil 4 Remake</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$18.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Resident Evil 4 Remake Ps4 primaria', 18000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Resident Evil 7: Biohazard</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Resident Evil 7: Biohazard Ps4 primaria', 25000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Resident Evil Village</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$15.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Resident Evil Village Ps4 primaria', 15500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Rust Console Edition</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$55.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Rust Console Edition Ps4 primaria', 55000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>SEGA Genesis Classics</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$34.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('SEGA Genesis Classics Ps4 primaria', 34000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Shadow of the Colossus</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$16.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Shadow of the Colossus Ps4 primaria', 16000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>SONIC X SHADOW GENERATIONS </h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$55.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('SONIC X SHADOW GENERATIONS Ps4 primaria', 55000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>SPYRO REIGNITED TRILOGY</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$40.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('SPYRO REIGNITED TRILOGY Ps4 primaria', 40000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Star Wars Jedi: Fallen Order</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$40.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Star Wars Jedi: Fallen Order Ps4 primaria', 40000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Street Fighter 6 </h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$21.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Street Fighter 6 Ps4 primaria', 21500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Subnautica</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$19.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Subnautica Ps4 primaria', 19000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Team Sonic Racing</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$16.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Team Sonic Racing Ps4 primaria', 16000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>The Crew 2 - Standard Edition</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$56.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('The Crew 2 - Standard Edition Ps4 primaria', 56000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>The Evil Within 2</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$17.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('The Evil Within 2 Ps4 primaria', 17000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>The Forest</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$17.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('The Forest Ps4 primaria', 17000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>The Last Of Us Remastered</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$16.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('The Last Of Us Remastered Ps4 primaria', 16000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>The Last of Us Parte II</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$27.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('The Last of Us Parte II Ps4 primaria', 27000)">Añadir al carrito</button>
+    </div>
+</article>
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>The Witcher 3: Wild Hunt</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$35.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('The Witcher 3: Wild Hunt Ps4 primaria', 35000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Tom Clancy's Ghost Recon: Breakpoint</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$35.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Tom Clancy's Ghost Recon: Breakpoint Ps4 primaria', 35000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Tomb Raider: Definitive Edition</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$16.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Tomb Raider: Definitive Edition Ps4 primaria', 16000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>UFC 4</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$34.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('UFC 4 Ps4 primaria', 34000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Uncharted 4: A Thief's End</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$17.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Uncharted 4: A Thief\'s End Ps4 primaria', 17000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Uncharted: The Nathan Drake Collection</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$16.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Uncharted: The Nathan Drake Collection Ps4 primaria', 16000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>Until Dawn</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$25.000 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('Until Dawn Ps4 primaria', 25000)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>WRC 7 FIA World Rally Championship</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$13.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('WRC 7 FIA World Rally Championship Ps4 primaria', 13500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>WWE 2K25</h4>
+        <span class="etiqueta">Ps4</span>
+    </div>
+   
+    <div class="info-juego">
+        <p class="precio">$23.500 CUENTA PRIMARIA</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('WWE 2K25 Ps4 primaria', 23500)">Añadir al carrito</button>
+        
+    </div>
+</article>
+
+
+        </div>
+    </main>
+
+    <button class="btn-flotante-carrito" onclick="abrirCarrito()">
+        🛒
+        <span class="contador-carrito" id="contador-items">0</span>
+    </button>
+
+    <div class="modal-carrito" id="modal-carrito">
+        <div class="contenido-modal">
+            <div class="cabecera-modal">
+                <h3>Tu Carrito</h3>
+                <button class="btn-cerrar-modal" onclick="cerrarCarrito()">✖</button>
+            </div>
+            
+            <ul class="lista-juegos-carrito" id="lista-carrito-visual">
+            </ul>
+
+            <div class="resumen-modal">
+                <span>Total a pagar:</span>
+                <span class="total-plata">$<span id="total-precio-visual">0</span></span>
+            </div>
+            
+            <button class="btn-comprar" onclick="enviarWhatsApp()">Confirmar por WhatsApp</button>
+        </div>
+    </div>
+
+    <script>
+        const CLAVE_CARRITO = 'Mundo Joystick';
+        let carrito = cargarCarrito();
+        const parametros = new URLSearchParams(window.location.search);
+        let seccionActual = parametros.get('seccion') || (window.location.pathname.toLowerCase().endsWith('/ps4.html') ? 'ps4' : 'todos');
+        function cargarCarrito() {
+            try {
+                const guardado = JSON.parse(localStorage.getItem(CLAVE_CARRITO) || '[]');
+                return Array.isArray(guardado) ? guardado.filter(item => item && typeof item.nombre === 'string' && Number.isFinite(Number(item.precio))).map(item => ({ id: Number(item.id) || Date.now() + Math.random(), nombre: item.nombre, precio: Number(item.precio) })) : [];
+            } catch (error) {
+                return [];
+            }
+        }
+        function guardarCarrito() {
+            localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
+        }
+        function aplicarSeccion() {
+            document.querySelectorAll('.menu-categorias a[data-seccion]').forEach(enlace => {
+                const activa = enlace.dataset.seccion === seccionActual;
+                enlace.classList.toggle('activo', activa);
+                if (activa) enlace.setAttribute('aria-current', 'page');
+                else enlace.removeAttribute('aria-current');
+            });
+            const tarjetas = document.querySelectorAll('.tarjeta-juego');
+            let cantidadVisible = 0;
+            tarjetas.forEach(tarjeta => {
+                const etiqueta = (tarjeta.querySelector('.etiqueta')?.textContent || '').trim().toLowerCase();
+                const textoTarjeta = tarjeta.textContent.toLowerCase();
+                const esPromo = tarjeta.dataset.promo === 'true' || /promo|oferta/.test(textoTarjeta);
+                const coincide = seccionActual === 'todos' || (seccionActual === 'ps4' && etiqueta.includes('ps4')) || (seccionActual === 'ps5' && etiqueta.includes('ps5')) || (seccionActual === 'plus' && etiqueta.includes('plus')) || (seccionActual === 'promos' && esPromo);
+                tarjeta.hidden = !coincide;
+                if (coincide) cantidadVisible++;
+            });
+            const cuadrilla = document.querySelector('.grid-juegos');
+            if (cuadrilla) {
+                cuadrilla.querySelector('.mensaje-sin-juegos')?.remove();
+                if (cantidadVisible === 0) {
+                    const aviso = document.createElement('p');
+                    aviso.className = 'mensaje-sin-juegos';
+                    aviso.textContent = seccionActual === 'promos' ? 'Todavía no hay promociones publicadas. Volvé pronto para ver las ofertas.' : 'Todavía no hay productos en esta sección.';
+                    cuadrilla.appendChild(aviso);
+                }
+            }
+        }
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ id: Date.now() + Math.random(), nombre: nombre, precio: Number(precio) });
+            guardarCarrito();
+            actualizarInterfazCarrito();
+            abrirCarrito();
+        }
+        function borrarItem(id) {
+            carrito = carrito.filter(item => item.id !== id);
+            guardarCarrito();
+            actualizarInterfazCarrito();
+        }
+        function actualizarInterfazCarrito() { const listaVisual = document.getElementById('lista-carrito-visual'); let total = 0; listaVisual.innerHTML = ''; if (carrito.length === 0) { listaVisual.innerHTML = '<li style="text-align:center;color:#b0bec5;padding:20px;">El carrito está vacío</li>'; } else { carrito.forEach(item => { total += Number(item.precio) || 0; const li = document.createElement('li'); li.className = 'item-carrito'; const info = document.createElement('div'); info.className = 'item-info'; const nombre = document.createElement('span'); nombre.className = 'item-nombre'; nombre.textContent = item.nombre; const precio = document.createElement('span'); precio.className = 'item-precio'; precio.textContent = '$' + new Intl.NumberFormat('es-AR').format(item.precio); info.append(nombre, precio); const borrar = document.createElement('button'); borrar.className = 'btn-borrar-item'; borrar.type = 'button'; borrar.textContent = '🗑'; borrar.setAttribute('aria-label', 'Quitar ' + item.nombre + ' del carrito'); borrar.addEventListener('click', () => borrarItem(item.id)); li.append(info, borrar); listaVisual.appendChild(li); }); } document.getElementById('total-precio-visual').textContent = new Intl.NumberFormat('es-AR').format(total); document.getElementById('contador-items').textContent = carrito.length; }
+        function abrirCarrito() { actualizarInterfazCarrito(); document.getElementById('modal-carrito').style.display = 'flex'; }
+        function cerrarCarrito() { document.getElementById('modal-carrito').style.display = 'none'; }
+        document.getElementById('modal-carrito').addEventListener('click', function(event) { if (event.target === this) cerrarCarrito(); });
+        function enviarWhatsApp() { if (carrito.length === 0) { alert('El carrito está vacío. Agregá algún juego primero.'); return; } let total = 0; let mensaje = 'Hola Miguel, quiero confirmar mi compra:\n\n'; carrito.forEach(item => { total += Number(item.precio) || 0; mensaje += `🎮 ${item.nombre} - $${new Intl.NumberFormat('es-AR').format(item.precio)}\n`; }); mensaje += `\n💰 *TOTAL A PAGAR: $${new Intl.NumberFormat('es-AR').format(total)}*\n\n¿Me pasás los datos para transferir?`; window.open('https://wa.me/5493875524694?text=' + encodeURIComponent(mensaje), '_blank'); }
+        function consultarDuda() { const mensaje = 'Hola Miguel 👋, tengo una consulta sobre la tienda:'; window.open('https://wa.me/5493875524694?text=' + encodeURIComponent(mensaje), '_blank'); }
+        window.addEventListener('storage', function(event) { if (event.key === CLAVE_CARRITO) { carrito = cargarCarrito(); actualizarInterfazCarrito(); } });
+        actualizarInterfazCarrito();
+        aplicarSeccion();
+    </script>
+    <!-- Acá termina toda tu lista de juegos y artículos -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let buscador = document.getElementById('buscador-juegos');
+        if (!buscador) return;
+
+        // Busca todos los carteles que marcaste para esconder
+        let seccionesExtra = document.querySelectorAll('.ocultar-al-buscar');
+
+        buscador.addEventListener('input', function(e) {
+            let textoBuscado = e.target.value.toLowerCase().trim();
+            let tarjetas = document.querySelectorAll('.tarjeta-juego');
+
+            // Si escribís algo, esconde los carteles. Si borrás, los vuelve a mostrar.
+            if (textoBuscado !== "") {
+                seccionesExtra.forEach(sec => sec.style.display = 'none');
+            } else {
+                seccionesExtra.forEach(sec => sec.style.display = '');
+            }
+
+            // Filtra los juegos
+            tarjetas.forEach(function(tarjeta) {
+                let tituloElemento = tarjeta.querySelector('h4');
+                
+                if (tituloElemento) {
+                    let nombreJuego = tituloElemento.innerText.toLowerCase();
+                    
+                    if (nombreJuego.includes(textoBuscado)) {
+                        tarjeta.style.display = ''; 
+                    } else {
+                        tarjeta.style.display = 'none'; 
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>
+   <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="footer-tienda">
+        <div class="footer-contenido">
+            
+            <div class="footer-logo">
+                <img src="https://i.ibb.co/JjVVGySW/1000991197-fotor-bg-remover-2026101515555.png" alt="Mundo Joystick Logo">
+                <p>Todo lo que tu PS4 y PS5 necesitan</p>
+            </div>
+
+            <div class="footer-seccion footer-contacto">
+                <h4>Nuestras Redes</h4>
+                <p style="color: #b0bec5; font-size: 0.9rem; margin-bottom: 12px; line-height: 1.4;">Seguinos para enterarte de los nuevos ingresos y promos exclusivas antes que nadie.</p>
+                
+                <!-- Botón de Instagram -->
+                <a href="https://instagram.com/" target="_blank" style="
+                    display: inline-flex; 
+                    align-items: center; 
+                    gap: 8px; 
+                    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); 
+                    color: white; 
+                    padding: 8px 18px; 
+                    border-radius: 25px; 
+                    text-decoration: none; 
+                    font-weight: bold; 
+                    font-size: 0.95rem;
+                    box-shadow: 0 4px 10px rgba(220, 39, 67, 0.3);
+                ">
+                    📸 Seguinos en Instagram
+                </a>
+            </div>
+
+            <div class="footer-seccion">
+                <h4>Categorías</h4>
+                <div class="footer-categorias">
+                    <a href="TODOS.html">Inicio</a>
+                    <a href="PS4.html">Juegos PS4</a>
+                    <a href="PS5.html">Juegos PS5</a>
+                    <a href="PS%20PLUS.html">PS Plus</a>
+                    <a href="PROMOS.html">Promos</a>
+                </div>
+            </div>
+
+            <div class="footer-pagos">
+                <h4>MÉTODOS DE PAGO Y SEGURIDAD</h4>
+                <div class="iconos-pagos">
+                    <img src="https://logospng.org/download/mastercard/logo-mastercard-2048.png" alt="Mastercard">
+                    <img src="https://logospng.org/download/visa/logo-visa-2048.png" alt="Visa">
+                   <img src="https://i.ibb.co/nNHsbyqj/images.png" alt="Mercado Pago" />
+
+                </div>
+                <div class="sello-seguridad">
+                    <span>🛡️</span> 100% SEGURO Y GARANTIZADO
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer-legal">
+            &copy; 2026 MUNDO JOYSTICK. Todos los derechos reservados.
+        </div>
+    </footer>

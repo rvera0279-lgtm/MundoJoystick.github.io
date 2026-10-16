@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Miguel Gamer - Tienda de Juegos</title>
+    <link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap](https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap)" rel="stylesheet">
+    <style>
+
+        :root {
+            --fondo-base: #070b13; 
+            --tarjeta: #111a24; 
+            --azul-ps: #00439c;
+            --turquesa: #00e5ff; 
+            --verde-wa: #1a9c3d;
+            --texto: #ffffff; 
+            --texto-secundario: #a0aec0; 
+            --rojo-borrar: #ff4444;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--fondo-base);
+            color: var(--texto);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(90deg, #111111, #1a2933);
+            color: white;
+            padding: 25px 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--turquesa);
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2); 
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px var(--turquesa), 0 0 20px var(--turquesa);
+        }
+
+        header p {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #b0bec5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        /* Diseño base de los botones del menú */
+        .menu-categorias a, .menu-categorias button { 
+            text-decoration: none; 
+            background-color: #ffffff; 
+            color: #2d2f38; /* Letras bien negras */
+            border: 1px solid #cccccc; 
+            padding: 8px 16px; 
+            border-radius: 20px; 
+            font-weight: 800; /* Letra un poco más gruesa para que resalte más */
+            cursor: pointer; 
+            transition: 0.3s; 
+        }
+
+        /* Botón seleccionado (Azul PlayStation) */
+        .menu-categorias a.activo, .menu-categorias button.activo { 
+            background-color: var(--azul-ps); 
+            color: #ffffff; 
+            border-color: var(--azul-ps); 
+            box-shadow: 0 0 10px rgba(0, 67, 156, 0.6); 
+        }
+
+        /* Botón de Consultas WhatsApp (Verde original) */
+        .menu-categorias a.btn-whatsapp-menu, .menu-categorias button.btn-whatsapp-menu { 
+            background-color: var(--verde-wa); 
+            color: #ffffff; 
+            border-color: var(--verde-wa); 
+            box-shadow: 0 0 8px rgba(37, 211, 102, 0.5); 
+        }
+
+        
+        .horarios-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #003377;
+            margin: 15px 15px 5px 15px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--turquesa);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .horarios-container strong {
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 8px;
+            color: var(--azul-ps);
+            text-transform: uppercase;
+        }
+
+        .mensaje-confianza {
+            
+    background: linear-gradient(135deg, #001f4d, #00439c);
+    margin: 10px 15px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid var(--verde-wa);
+    box-shadow: 0 4px 15px rgba(0, 67, 156, 0.4);
+}
+
+.mensaje-confianza h3 {
+    color: #ffffff !important;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.mensaje-confianza p {
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+        }
+
+        .mensaje-confianza h3 {
+            color: var(--texto);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .mensaje-confianza p {
+            color: var(--texto-secundario);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .banner-novedades {
+            background: linear-gradient(135deg, #1a2933, #111111);
+            color: white;
+            margin: 10px 15px 15px 15px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--turquesa);
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.15);
+        }
+
+        .banner-novedades h3 {
+            color: var(--turquesa);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .banner-novedades ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .banner-novedades li {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .banner-novedades li::before {
+            content: '🔥';
+            margin-right: 8px;
+        }
+
+        .main-content {
+            padding: 0 15px 15px 15px;
+            flex-grow: 1;
+        }
+
+        .grid-juegos {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .tarjeta-juego {
+            background-color: var(--tarjeta);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .encabezado-juego {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .encabezado-juego h4 {
+            font-size: 1.15rem;
+            margin: 0;
+            color: var(--texto);
+            font-weight: 800;
+        }
+
+
+        .etiqueta {
+            background-color: var(--azul-ps);
+            color: white;
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+                /* DISEÑO PIE DE PÁGINA (FOOTER) */
+        .footer-tienda {
+            background: linear-gradient(180deg, #070b13 0%, #001f4d 100%);
+            color: #ffffff;
+            padding: 40px 20px 20px;
+            margin-top: 40px;
+            border-top: 3px solid var(--turquesa);
+            box-shadow: 0 -5px 20px rgba(0, 229, 255, 0.1);
+        }
+        .footer-contenido {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .footer-logo {
+            text-align: center;
+        }
+        .footer-logo img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.5));
+        }
+        .footer-logo p {
+            font-size: 0.85rem;
+            color: #b0bec5;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .footer-seccion {
+            border-left: 3px solid var(--turquesa);
+            padding-left: 15px;
+        }
+        .footer-seccion h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-contacto p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #e0e0e0;
+        }
+        .footer-categorias {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .footer-categorias a {
+            color: #b0bec5;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+        .footer-categorias a:hover {
+            color: var(--turquesa);
+        }
+        .footer-pagos {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 10px;
+        }
+        .footer-pagos h4 {
+            font-size: 0.9rem;
+            color: #b0bec5;
+            margin-bottom: 15px;
+        }
+        .iconos-pagos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        .iconos-pagos img {
+            height: 25px;
+            background: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .sello-seguridad {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--verde-wa);
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+        .footer-legal {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666666;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+        }
+
+
+        /* DISEÑO DE IMAGEN FIJO Y SEGURO */
+        .imagen-juego {
+            width: 50% !important; 
+            height: auto !important; 
+            max-height: 250px;
+            object-fit: contain; 
+            margin: 20px auto !important; 
+            display: block !important;
+            border-radius: 6px;
+            box-shadow: 0 20px 16px rgba(0,0,0,0.2); 
+        }
+
+        .info-juego {
+            padding: 15px;
+            text-align: center; 
+            border-top: 1px solid #f5f5f5;
+        }
+
+        .precio {
+            font-size: 1.6rem;
+            color: #1a9c3d;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+                .btn-agregar {
+            width: 100%;
+            background-color: var(--azul-ps);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-weight: 800;
+            border-radius: 8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+        .btn-agregar:hover {
+            background-color: #005bb5;
+            box-shadow: 0 4px 15px rgba(0, 67, 156, 0.4);
+        }
+        .btn-agregar:active {
+            background-color: var(--turquesa);
+            color: #000;
+        }
+
+
+        /* Botón flotante para abrir el carrito */
+        .btn-flotante-carrito {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--azul-ps);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contador-carrito {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff0000;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid white;
+        }
+
+        /* Ventana Modal del Carrito */
+        .modal-carrito {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1001;
+            justify-content: center;
+            align-items: flex-end; 
+        }
+
+        .contenido-modal {
+            background: linear-gradient(135deg, #1a2933, #111111);
+            border-top: 3px solid var(--turquesa);
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px 20px 0 0;
+            padding: 20px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            animation: deslizarArriba 0.3s ease-out;
+            color: white;
+        }
+
+        @keyframes deslizarArriba {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .cabecera-modal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #333333;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .cabecera-modal h3 {
+            font-size: 1.4rem;
+            color: var(--turquesa);
+        }
+
+        .btn-cerrar-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .lista-juegos-carrito {
+            list-style: none;
+            overflow-y: auto;
+            flex-grow: 1;
+            margin-bottom: 15px;
+            padding: 0;
+        }
+
+        .item-carrito {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #333333;
+        }
+
+        .item-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-nombre {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .item-precio {
+            color: #b0bec5;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .btn-borrar-item {
+            background-color: transparent;
+            border: none;
+            color: var(--rojo-borrar);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .resumen-modal {
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 1px solid #333333;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .btn-comprar {
+            width: 100%;
+            background-color: var(--verde-wa);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+    </style>
+</head>
+<body>
+</head>
+<body>
+<!-- Cabecera limpia y sin neón forzado -->
+<header style="
+    background-color: #070b13;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    z-index: 10;
+">
+    <!-- Logo a la izquierda en 130px -->
+    <div style="flex-shrink: 0;">
+        <img src="https://i.ibb.co/JjVVGySW/1000991197-fotor-bg-remover-2026101515555.png" 
+             alt="Logo Mundo Joystick" 
+             style="width: 120px; height: auto;">
+    </div>
+
+    <!-- Título y eslogan a la derecha con anulación de luces -->
+    <div style="text-align: left;">
+        <h1 style="
+            margin: 0;
+            font-size: 1.8em; 
+            font-weight: 900;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff !important;
+            text-shadow: none !important;
+            text-transform: uppercase;
+        ">
+            MUNDO JOYSTICK
+        </h1>
+        <p style="
+            margin: 5px 0 0 0;
+            font-size: 0.85em;
+            font-weight: 700;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff !important;
+            text-shadow: none !important;
+            text-transform: uppercase;
+        ">
+            TODO LO QUE TU PS4 Y PS5 NECESITAN
+        100% SEGURO Y GARANTIZADO</p>
+    </div>
+</header>
+
+        <div class="menu-categorias" style="display: flex; overflow-x: auto; background-color: rgba(255, 255, 255, 0.8); padding: 12px 15px; gap: 10px; white-space: nowrap;">
+    <a href="TODOS.html" data-seccion="todos">Todos</a>
+    <a href="PS4.html" data-seccion="ps4">PS4</a>
+    <a href="PS5.html" data-seccion="ps5">PS5</a>
+    <a href="PSPLUS.html" data-seccion="plus" class="activo" aria-current=")Ps Plus">PS Plus</a>
+    <a href="PROMOS.html" data-seccion="promos">Promos</a>
+    <a onclick="consultarDuda()" class="btn-whatsapp-menu" style="cursor: pointer;">💬 Consultas</a>
+</div>
+
+    </div>
+
+    <div class="horarios-container">
+        <strong>🕒 Horarios de Atención y Soporte</strong>
+        <p>Lunes a Jueves: 11:30 a 21:00 hs</p>
+        <p>Viernes: 11:30 a 20:00 hs</p>
+        <p>Sábados, Domingos y Feriados: 12:30 a 19:00 hs</p>
+    </div>
+
+    <div class="mensaje-confianza">
+        <h3>¡Hola! Soy Miguel 👋</h3>
+        <p>Más que un vendedor, soy tu amigo de confianza. Estoy acá para asesorarte en lo que necesites y ayudarte a elegir tu próximo juego. ¡Escribime con total confianza!</p>
+    </div>
+
+    <div class="banner-novedades">
+        <h3>Novedades de la Semana</h3>
+        <ul>
+            <li>⚽ Ya llegó el <strong>FC 27</strong>. ¡Llevalo hoy y empezá a jugar al instante!</li>
+            <li>🚗 <strong>Preventa exclusiva de GTA 6 (PS5)</strong>. Asegurá tu copia antes que nadie y freezamos el precio.</li>
+            
+            <li></li>   🚀 ➕ <strong>¡Nuevos precios en PS Plus!</strong> Ya actualizamos los planes Essential, Extra y Deluxe de 1, 3 y 12 meses. ¡Asegurá tu suscripción y no te quedes sin jugar online!
+
+            
+        </ul>
+    </div>
+
+    <main class="main-content">
+        <div class="grid-juegos">
+            
+            <article class="tarjeta-juego">
+                <div class="encabezado-juego">
+                    <h4>PLAY STATION PLUS ESSENTIAL 1 MES </h4>
+                    <span class="etiqueta" style="background-color: #e5c100; color: black;">PS PLUS</span>
+                </div>
+                <img src="https://i.ibb.co/DDSWfqwD/1131-producto-medidas-para-mercado-libre-2023-08-01t145447-464-791.jpg" alt="PS Plus" class="imagen-juego">
+                <div class="info-juego">
+                    <p class="precio">$12.500</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('PS PLAYSTATION PLUS ESSENTIAL 1 MES', 12500)">Añadir al carrito</button>
+                </div>
+            </article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>PLAY STATION PLUS ESSENTIAL 3 MESES</h4>
+        <span class="etiqueta" style="background-color: #e5c100; color: black;">PS PLUS</span>
+    </div>
+    <img src="https://i.ibb.co/jkGVPTQb/1131-producto-1024x1024-8-1092.jpg" alt="PS Plus 3 Meses" class="imagen-juego">
+    <div class="info-juego">
+        <p class="precio">$26.000</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('PS PLAYSTATION PLUS ESSENTIAL 3 MESES', 26000)">Añadir al carrito</button>
+    </div>
+</article>
+
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>PLAY STATION PLUS ESSENTIAL 12 MESES</h4>
+        <span class="etiqueta" style="background-color: #e5c100; color: black;">PS PLUS</span>
+    </div>
+    <img src="https://i.ibb.co/r21VGdgf/1131-producto-1024x1024-7-2862.jpg" alt="PS Plus 12 Meses" class="imagen-juego">
+    <div class="info-juego">
+        <p class="precio">$61.000</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('PS PLAYSTATION PLUS ESSENTIAL 12 MESES', 61000)">Añadir al carrito</button>
+    </div>
+</article>
+
+<!-- PLAYSTATION PLUS EXTRA 1 MES -->
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>PLAYSTATION PLUS EXTRA 1 MES</h4>
+        <span class="etiqueta" style="background-color: #e5c100; color: black;">PS PLUS</span>
+    </div>
+    <img src="https://i.ibb.co/vCNv90dk/1792033993757.jpg" alt="PS Plus Extra 1 Mes" class="imagen-juego">
+    <div class="info-juego">
+        <p class="precio">$20.000</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('PS PLAYSTATION PLUS EXTRA 1 MES', 20000)">Añadir al carrito</button>
+    </div>
+</article>
+
+<!-- PLAYSTATION PLUS EXTRA 3 MESES -->
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>PLAYSTATION PLUS EXTRA 3 MESES</h4>
+        <span class="etiqueta" style="background-color: #e5c100; color: black;">PS PLUS</span>
+    </div>
+    <img src="https://i.ibb.co/fz896wrd/1792034000523.jpg" alt="PS Plus Extra 3 Meses" class="imagen-juego">
+    <div class="info-juego">
+        <p class="precio">$40.000</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('PS PLAYSTATION PLUS EXTRA 3 MESES', 40000)">Añadir al carrito</button>
+    </div>
+</article>
+
+<!-- PLAYSTATION PLUS EXTRA 12 MESES -->
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>PLAYSTATION PLUS EXTRA 12 MESES</h4>
+        <span class="etiqueta" style="background-color: #e5c100; color: black;">PS PLUS</span>
+    </div>
+    <img src="https://i.ibb.co/JWVtVtc9/extra-12-e6d992a1d0feb6d6a317782009474401-1024-1024.webp" alt="PS Plus Extra 12 Meses" class="imagen-juego">
+    <div class="info-juego">
+        <p class="precio">$95.000</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('PS PLAYSTATION PLUS EXTRA 12 MESES', 95000)">Añadir al carrito</button>
+    </div>
+</article>
+<!-- PLAYSTATION PLUS DELUXE 1 MES -->
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>PLAYSTATION PLUS DELUXE 1 MES</h4>
+        <span class="etiqueta" style="background-color: #e5c100; color: black;">PS PLUS</span>
+    </div>
+    <img src="https://i.ibb.co/PsD9dyMk/1792034893339.jpg" alt="PS Plus Deluxe 1 Mes" class="imagen-juego">
+    <div class="info-juego">
+        <p class="precio">$21.000</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('PS PLAYSTATION PLUS DELUXE 1 MES', 21000)">Añadir al carrito</button>
+    </div>
+</article>
+
+<!-- PLAYSTATION PLUS DELUXE 3 MESES -->
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>PLAYSTATION PLUS DELUXE 3 MESES</h4>
+        <span class="etiqueta" style="background-color: #e5c100; color: black;">PS PLUS</span>
+    </div>
+    <img src="https://i.ibb.co/GQP9Wrnb/1792034918773.jpg" alt="PS Plus Deluxe 3 Meses" class="imagen-juego">
+    <div class="info-juego">
+        <p class="precio">$47.000</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('PS PLAYSTATION PLUS DELUXE 3 MESES', 47000)">Añadir al carrito</button>
+    </div>
+</article>
+
+<!-- PLAYSTATION PLUS DELUXE 12 MESES -->
+<article class="tarjeta-juego">
+    <div class="encabezado-juego">
+        <h4>PLAYSTATION PLUS DELUXE 12 MESES</h4>
+        <span class="etiqueta" style="background-color: #e5c100; color: black;">PS PLUS</span>
+    </div>
+    <img src="https://i.ibb.co/DgmWRDzs/1792034930162.jpg" alt="PS Plus Deluxe 12 Meses" class="imagen-juego">
+    <div class="info-juego">
+        <p class="precio">$100.000</p>
+        <button class="btn-agregar" onclick="agregarAlCarrito('PS PLAYSTATION PLUS DELUXE 12 MESES', 100000)">Añadir al carrito</button>
+    </div>
+</article>
+
+
+
+        </div>
+    </main>
+
+    <button class="btn-flotante-carrito" onclick="abrirCarrito()">
+        🛒
+        <span class="contador-carrito" id="contador-items">0</span>
+    </button>
+
+    <div class="modal-carrito" id="modal-carrito">
+        <div class="contenido-modal">
+            <div class="cabecera-modal">
+                <h3>Tu Carrito</h3>
+                <button class="btn-cerrar-modal" onclick="cerrarCarrito()">✖</button>
+            </div>
+            
+            <ul class="lista-juegos-carrito" id="lista-carrito-visual">
+            </ul>
+
+            <div class="resumen-modal">
+                <span>Total a pagar:</span>
+                <span class="total-plata">$<span id="total-precio-visual">0</span></span>
+            </div>
+            
+            <button class="btn-comprar" onclick="enviarWhatsApp()">Confirmar por WhatsApp</button>
+        </div>
+    </div>
+
+    <script>
+        const CLAVE_CARRITO = 'Mundo Joystick';
+        let carrito = cargarCarrito();
+        const parametros = new URLSearchParams(window.location.search);
+        let seccionActual = parametros.get('seccion') || 'plus'
+        function cargarCarrito() {
+            try {
+                const guardado = JSON.parse(localStorage.getItem(CLAVE_CARRITO) || '[]');
+                return Array.isArray(guardado) ? guardado.filter(item => item && typeof item.nombre === 'string' && Number.isFinite(Number(item.precio))).map(item => ({ id: Number(item.id) || Date.now() + Math.random(), nombre: item.nombre, precio: Number(item.precio) })) : [];
+            } catch (error) {
+                return [];
+            }
+        }
+        function guardarCarrito() {
+            localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
+        }
+        function aplicarSeccion() {
+            document.querySelectorAll('.menu-categorias a[data-seccion]').forEach(enlace => {
+                const activa = enlace.dataset.seccion === seccionActual;
+                enlace.classList.toggle('activo', activa);
+                if (activa) enlace.setAttribute('aria-current', 'page');
+                else enlace.removeAttribute('aria-current');
+            });
+            const tarjetas = document.querySelectorAll('.tarjeta-juego');
+            let cantidadVisible = 0;
+            tarjetas.forEach(tarjeta => {
+                const etiqueta = (tarjeta.querySelector('.etiqueta')?.textContent || '').trim().toLowerCase();
+                const textoTarjeta = tarjeta.textContent.toLowerCase();
+                const esPromo = tarjeta.dataset.promo === 'true' || /promo|oferta/.test(textoTarjeta);
+                const coincide = seccionActual === 'todos' || (seccionActual === 'ps4' && etiqueta.includes('ps4')) || (seccionActual === 'ps5' && etiqueta.includes('ps5')) || (seccionActual === 'plus' && etiqueta.includes('plus')) || (seccionActual === 'promos' && esPromo);
+                tarjeta.hidden = !coincide;
+                if (coincide) cantidadVisible++;
+            });
+            const cuadrilla = document.querySelector('.grid-juegos');
+            if (cuadrilla) {
+                cuadrilla.querySelector('.mensaje-sin-juegos')?.remove();
+                if (cantidadVisible === 0) {
+                    const aviso = document.createElement('p');
+                    aviso.className = 'mensaje-sin-juegos';
+                    aviso.textContent = seccionActual === 'promos' ? 'Todavía no hay promociones publicadas. Volvé pronto para ver las ofertas.' : 'Todavía no hay productos en esta sección.';
+                    cuadrilla.appendChild(aviso);
+                }
+            }
+        }
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ id: Date.now() + Math.random(), nombre: nombre, precio: Number(precio) });
+            guardarCarrito();
+            actualizarInterfazCarrito();
+            abrirCarrito();
+        }
+        function borrarItem(id) {
+            carrito = carrito.filter(item => item.id !== id);
+            guardarCarrito();
+            actualizarInterfazCarrito();
+        }
+        function actualizarInterfazCarrito() { const listaVisual = document.getElementById('lista-carrito-visual'); let total = 0; listaVisual.innerHTML = ''; if (carrito.length === 0) { listaVisual.innerHTML = '<li style="text-align:center;color:#b0bec5;padding:20px;">El carrito está vacío</li>'; } else { carrito.forEach(item => { total += Number(item.precio) || 0; const li = document.createElement('li'); li.className = 'item-carrito'; const info = document.createElement('div'); info.className = 'item-info'; const nombre = document.createElement('span'); nombre.className = 'item-nombre'; nombre.textContent = item.nombre; const precio = document.createElement('span'); precio.className = 'item-precio'; precio.textContent = '$' + new Intl.NumberFormat('es-AR').format(item.precio); info.append(nombre, precio); const borrar = document.createElement('button'); borrar.className = 'btn-borrar-item'; borrar.type = 'button'; borrar.textContent = '🗑'; borrar.setAttribute('aria-label', 'Quitar ' + item.nombre + ' del carrito'); borrar.addEventListener('click', () => borrarItem(item.id)); li.append(info, borrar); listaVisual.appendChild(li); }); } document.getElementById('total-precio-visual').textContent = new Intl.NumberFormat('es-AR').format(total); document.getElementById('contador-items').textContent = carrito.length; }
+        function abrirCarrito() { actualizarInterfazCarrito(); document.getElementById('modal-carrito').style.display = 'flex'; }
+        function cerrarCarrito() { document.getElementById('modal-carrito').style.display = 'none'; }
+        document.getElementById('modal-carrito').addEventListener('click', function(event) { if (event.target === this) cerrarCarrito(); });
+        function enviarWhatsApp() { if (carrito.length === 0) { alert('El carrito está vacío. Agregá algún juego primero.'); return; } let total = 0; let mensaje = 'Hola Miguel, quiero confirmar mi compra:\n\n'; carrito.forEach(item => { total += Number(item.precio) || 0; mensaje += `🎮 ${item.nombre} - $${new Intl.NumberFormat('es-AR').format(item.precio)}\n`; }); mensaje += `\n💰 *TOTAL A PAGAR: $${new Intl.NumberFormat('es-AR').format(total)}*\n\n¿Me pasás los datos para transferir?`; window.open('https://wa.me/5493875524694?text=' + encodeURIComponent(mensaje), '_blank'); }
+        function consultarDuda() { const mensaje = 'Hola Miguel 👋, tengo una consulta sobre la tienda:'; window.open('https://wa.me/5493875524694?text=' + encodeURIComponent(mensaje), '_blank'); }
+        window.addEventListener('storage', function(event) { if (event.key === CLAVE_CARRITO) { carrito = cargarCarrito(); actualizarInterfazCarrito(); } });
+        actualizarInterfazCarrito();
+        aplicarSeccion();
+    </script>
+    
+    </html>
+    
+     <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="footer-tienda ocultar-al-buscar">
+        <div class="footer-contenido">
+            
+            <div class="footer-logo">
+                <img src="https://i.ibb.co/JjVVGySW/1000991197-fotor-bg-remover-2026101515555.png" alt="Mundo Joystick Logo">
+                <p>Todo lo que tu PS4 y PS5 necesitan</p>
+            </div>
+
+            <div class="footer-seccion footer-contacto">
+                <h4>Nuestras Redes</h4>
+                <p style="color: #b0bec5; font-size: 0.9rem; margin-bottom: 12px; line-height: 1.4;">Seguinos para enterarte de los nuevos ingresos y promos exclusivas antes que nadie.</p>
+                
+                <!-- Botón de Instagram -->
+                <a href="https://instagram.com/" target="_blank" style="
+                    display: inline-flex; 
+                    align-items: center; 
+                    gap: 8px; 
+                    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); 
+                    color: white; 
+                    padding: 8px 18px; 
+                    border-radius: 25px; 
+                    text-decoration: none; 
+                    font-weight: bold; 
+                    font-size: 0.95rem;
+                    box-shadow: 0 4px 10px rgba(220, 39, 67, 0.3);
+                ">
+                    📸 Seguinos en Instagram
+                </a>
+            </div>
+
+            <div class="footer-seccion">
+                <h4>Categorías</h4>
+                <div class="footer-categorias">
+                    <a href="TODOS.html">Inicio</a>
+                    <a href="PS4.html">Juegos PS4</a>
+                    <a href="PS5.html">Juegos PS5</a>
+                    <a href="PS%20PLUS.html">PS Plus</a>
+                    <a href="PROMOS.html">Promos</a>
+                </div>
+            </div>
+
+            <div class="footer-pagos">
+                <h4>MÉTODOS DE PAGO Y SEGURIDAD</h4>
+                <div class="iconos-pagos">
+                    <img src="https://logospng.org/download/mastercard/logo-mastercard-2048.png" alt="Mastercard">
+                    <img src="https://logospng.org/download/visa/logo-visa-2048.png" alt="Visa">
+                   <img src="https://i.ibb.co/nNHsbyqj/images.png" alt="Mercado Pago" />
+
+                </div>
+                <div class="sello-seguridad">
+                    <span>🛡️</span> 100% SEGURO Y GARANTIZADO
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer-legal">
+            &copy; 2026 MUNDO JOYSTICK. Todos los derechos reservados.
+        </div>
+    </footer>

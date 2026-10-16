@@ -1,0 +1,1145 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="es">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miguel Gamer - Tienda de Juegos</title>
+    <link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap](https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap)" rel="stylesheet">
+    <style>
+               :root {
+            --fondo-base: #070b13; 
+            --tarjeta: #111a24; 
+            --azul-ps: #00439c;
+            --turquesa: #00e5ff; 
+            --verde-wa: #1a9c3d;
+            --texto: #ffffff; 
+            --texto-secundario: #a0aec0; 
+            --rojo-borrar: #ff4444;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--fondo-base);
+            color: var(--texto);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(90deg, #111111, #1a2933);
+            color: white;
+            padding: 25px 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--turquesa);
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2); 
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px var(--turquesa), 0 0 20px var(--turquesa);
+        }
+
+        header p {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #b0bec5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+               /* Diseño base de los botones del menú */
+        .menu-categorias a, .menu-categorias button { 
+            text-decoration: none; 
+            background-color: #ffffff; 
+            color: #2d2f38; /* Letras bien negras */
+            border: 1px solid #cccccc; 
+            padding: 8px 16px; 
+            border-radius: 20px; 
+            font-weight: 800; /* Letra un poco más gruesa para que resalte más */
+            cursor: pointer; 
+            transition: 0.3s; 
+        }
+
+        /* Botón seleccionado (Azul PlayStation) */
+        .menu-categorias a.activo, .menu-categorias button.activo { 
+            background-color: var(--azul-ps); 
+            color: #ffffff; 
+            border-color: var(--azul-ps); 
+            box-shadow: 0 0 10px rgba(0, 67, 156, 0.6); 
+        }
+
+        /* Botón de Consultas WhatsApp (Verde original) */
+        .menu-categorias a.btn-whatsapp-menu, .menu-categorias button.btn-whatsapp-menu { 
+            background-color: var(--verde-wa); 
+            color: #ffffff; 
+            border-color: var(--verde-wa); 
+            box-shadow: 0 0 8px rgba(37, 211, 102, 0.5); 
+        }
+
+        .horarios-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #003377;
+            margin: 15px 15px 5px 15px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--turquesa);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .horarios-container strong {
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 8px;
+            color: var(--azul-ps);
+            text-transform: uppercase;
+        }
+
+        .mensaje-confianza {
+            
+    background: linear-gradient(135deg, #001f4d, #00439c);
+    margin: 10px 15px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid var(--verde-wa);
+    box-shadow: 0 4px 15px rgba(0, 67, 156, 0.4);
+}
+
+.mensaje-confianza h3 {
+    color: #ffffff !important;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.mensaje-confianza p {
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+        }
+
+        .mensaje-confianza h3 {
+            color: var(--texto);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .mensaje-confianza p {
+            color: var(--texto-secundario);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .banner-novedades {
+            background: linear-gradient(135deg, #1a2933, #111111);
+            color: white;
+            margin: 10px 15px 15px 15px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--turquesa);
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.15);
+        }
+
+        .banner-novedades h3 {
+            color: var(--turquesa);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .banner-novedades ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .banner-novedades li {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .banner-novedades li::before {
+            content: '🔥';
+            margin-right: 8px;
+        }
+
+        .main-content {
+            padding: 0 15px 15px 15px;
+            flex-grow: 1;
+        }
+
+        .grid-juegos {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+                .tarjeta-juego {
+            background-color: var(--tarjeta);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .encabezado-juego {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .encabezado-juego h4 {
+            font-size: 1.15rem;
+            margin: 0;
+            color: var(--texto);
+            font-weight: 800;
+        }
+
+        .etiqueta {
+    background-color: #FF8C00; /* Fondo anaranjado */
+    color: white;              /* Letras blancas */
+    font-size: 0.75rem;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-left: 10px;
+
+        }
+        /* Estilos para la Promo Halloween */
+        .promo-halloween {
+    background-color: #1a1a1a; 
+    border-left: 5px solid #ff6600; 
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px; /* Ahora tiene margen de 15px en todos los lados */
+    box-sizing: border-box; /* Esto es clave para que el padding no desborde el ancho */
+    box-shadow: 0 4px 15px rgba(255, 102, 0, 0.15); 
+    color: white;
+}
+.titulo-halloween {
+    color: #ff8c00;
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+}
+
+.precio-halloween {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.precio-halloween strong {
+    color: #ff6600;
+}
+
+.lista-juegos {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.lista-juegos li::before {
+    content: "🧟‍♂️ "; /* Viñeta temática */
+    margin-right: 5px;
+}
+
+.botones-carrito {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.btn-carrito {
+    flex: 1;
+    padding: 12px 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-primaria {
+    background-color: #ff6600;
+    color: white;
+}
+
+.btn-primaria:hover {
+    background-color: #cc5200;
+    transform: scale(1.02);
+}
+
+.btn-secundaria {
+    background-color: transparent;
+    color: #ff6600;
+    border: 1px solid #ff6600;
+}
+
+.btn-secundaria:hover {
+    background-color: #ff6600;
+    color: white;
+    transform: scale(1.02);
+}
+/* Cuadro Promo 2x1 PlayStation */
+.promo-combo-ps {
+    background: linear-gradient(180deg, #001233 0%, #002855 100%); /* Azul oscuro PlayStation */
+    border: 2px solid #00a2ff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px auto;
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 162, 255, 0.4);
+    font-family: sans-serif;
+    max-width: 600px; /* Un poco más ancho para que entren las dos columnas */
+}
+
+.header-combo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header-combo h3 {
+    color: #00f0ff;
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.header-combo h2 {
+    color: #ffd700; /* Dorado para resaltar el precio */
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+
+.precios-combo {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.precio-pri, .precio-sec {
+    background: rgba(0,0,0,0.5);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.precio-pri {
+    border: 1px solid #ffd700;
+    color: #ffd700;
+}
+
+.precio-sec {
+    border: 1px solid #00f0ff;
+    color: #00f0ff;
+}
+
+.alerta-fecha {
+    background: #ff0033; /* Rojo alerta */
+    color: white;
+    padding: 6px 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* Grilla de dos columnas para los juegos */
+.lista-doble {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    font-size: 0.8rem;
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.columna-juegos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.columna-juegos li {
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.columna-juegos li::before {
+    content: "🎮";
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+/* Si la pantalla es muy chica (celulares), pasa a 1 sola columna */
+@media (max-width: 480px) {
+    .lista-doble {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+        /* DISEÑO DE IMAGEN FIJO Y SEGURO */
+        .imagen-juego {
+            width: 50% !important; 
+            height: auto !important; 
+            max-height: 250px;
+            object-fit: contain; 
+            margin: 20px auto !important; 
+            display: block !important;
+            border-radius: 6px;
+            box-shadow: 0 20px 16px rgba(0,0,0,0.2); 
+        }
+
+        .info-juego {
+            padding: 15px;
+            text-align: center; 
+            border-top: 1px solid #f5f5f5;
+        }
+
+        .precio {
+            font-size: 1.6rem;
+            color: #1a9c3d;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .btn-agregar {
+            width: 100%;
+            background-color: var(--azul-ps);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-weight: 800;
+            border-radius: 8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+        .btn-agregar:hover {
+            background-color: #005bb5;
+            box-shadow: 0 4px 15px rgba(0, 67, 156, 0.4);
+        }
+        .btn-agregar:active {
+            background-color: var(--turquesa);
+            color: #000;
+        }
+
+                /* DISEÑO PIE DE PÁGINA (FOOTER) */
+        .footer-tienda {
+            background: linear-gradient(180deg, #070b13 0%, #001f4d 100%);
+            color: #ffffff;
+            padding: 40px 20px 20px;
+            margin-top: 40px;
+            border-top: 3px solid var(--turquesa);
+            box-shadow: 0 -5px 20px rgba(0, 229, 255, 0.1);
+        }
+        .footer-contenido {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .footer-logo {
+            text-align: center;
+        }
+        .footer-logo img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.5));
+        }
+        .footer-logo p {
+            font-size: 0.85rem;
+            color: #b0bec5;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .footer-seccion {
+            border-left: 3px solid var(--turquesa);
+            padding-left: 15px;
+        }
+        .footer-seccion h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .footer-contacto p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #e0e0e0;
+        }
+        .footer-categorias {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .footer-categorias a {
+            color: #b0bec5;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+        .footer-categorias a:hover {
+            color: var(--turquesa);
+        }
+        .footer-pagos {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 10px;
+        }
+        .footer-pagos h4 {
+            font-size: 0.9rem;
+            color: #b0bec5;
+            margin-bottom: 15px;
+        }
+        .iconos-pagos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        .iconos-pagos img {
+            height: 25px;
+            background: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .sello-seguridad {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--verde-wa);
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+        .footer-legal {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666666;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+        }
+
+
+        /* Botón flotante para abrir el carrito */
+        .btn-flotante-carrito {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--azul-ps);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 999;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contador-carrito {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #ff0000;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid white;
+        }
+
+        /* Ventana Modal del Carrito */
+        .modal-carrito {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1001;
+            justify-content: center;
+            align-items: flex-end; 
+        }
+
+        .contenido-modal {
+            background: linear-gradient(135deg, #1a2933, #111111);
+            border-top: 3px solid var(--turquesa);
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px 20px 0 0;
+            padding: 20px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            animation: deslizarArriba 0.3s ease-out;
+            color: white;
+        }
+
+        @keyframes deslizarArriba {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .cabecera-modal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #333333;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .cabecera-modal h3 {
+            font-size: 1.4rem;
+            color: var(--turquesa);
+        }
+
+        .btn-cerrar-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .lista-juegos-carrito {
+            list-style: none;
+            overflow-y: auto;
+            flex-grow: 1;
+            margin-bottom: 15px;
+            padding: 0;
+        }
+
+        .item-carrito {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #333333;
+        }
+
+        .item-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-nombre {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .item-precio {
+            color: #b0bec5;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .btn-borrar-item {
+            background-color: transparent;
+            border: none;
+            color: var(--rojo-borrar);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .resumen-modal {
+            background-color: rgba(0, 0, 0, 0.4);
+            border: 1px solid #333333;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .btn-comprar {
+            width: 100%;
+            background-color: var(--verde-wa);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+    </style>
+    </head>
+<body>
+<!-- Cabecera limpia y sin neón forzado -->
+<header style="
+    background-color: #070b13;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    z-index: 10;
+">
+    <!-- Logo a la izquierda en 130px -->
+    <div style="flex-shrink: 0;">
+        <img src="https://i.ibb.co/JjVVGySW/1000991197-fotor-bg-remover-2026101515555.png" 
+             alt="Logo Mundo Joystick" 
+             style="width: 120px; height: auto;">
+    </div>
+
+    <!-- Título y eslogan a la derecha con anulación de luces -->
+    <div style="text-align: left;">
+        <h1 style="
+            margin: 0;
+            font-size: 1.8em; 
+            font-weight: 900;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff !important;
+            text-shadow: none !important;
+            text-transform: uppercase;
+        ">
+            MUNDO JOYSTICK
+        </h1>
+        <p style="
+            margin: 5px 0 0 0;
+            font-size: 0.85em;
+            font-weight: 700;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff !important;
+            text-shadow: none !important;
+            text-transform: uppercase;
+        ">
+            TODO LO QUE TU PS4 Y PS5 NECESITAN
+        100% SEGURO Y GARANTIZADO</p>
+    </div>
+</header>
+
+        <div class="menu-categorias" style="display: flex; overflow-x: auto; background-color: rgba(255, 255, 255, 0.8); padding: 12px 15px; gap: 10px; white-space: nowrap;">
+    <a href="TODOS.html" data-seccion="todos">Todos</a>
+    <a href="PS4.html" data-seccion="ps4">PS4</a>
+    <a href="PS5.html" data-seccion="ps5">PS5</a>
+    <a href="PS%20PLUS.html" data-seccion="plus">PS Plus</a>
+    <a href="PROMOS.html" data-seccion="promos" class="activo" aria-current="page">Promos</a>
+    <a onclick="consultarDuda()" class="btn-whatsapp-menu" style="cursor: pointer;">💬 Consultas</a>
+</div>
+
+    </div>
+
+    <div class="horarios-container">
+        <strong>🕒 Horarios de Atención y Soporte</strong>
+        <p>Lunes a Jueves: 11:30 a 21:00 hs</p>
+        <p>Viernes: 11:30 a 20:00 hs</p>
+        <p>Sábados, Domingos y Feriados: 12:30 a 19:00 hs</p>
+    </div>
+
+    <div class="mensaje-confianza">
+        <h3>¡Hola! Soy Miguel 👋</h3>
+        <p>Más que un vendedor, soy tu amigo de confianza. Estoy acá para asesorarte en lo que necesites y ayudarte a elegir tu próximo juego. ¡Escribime con total confianza!</p>
+    </div>
+
+    <div class="banner-novedades">
+        <h3>Novedades de la Semana</h3>
+        <ul>
+            <li>⚽ Ya llegó el <strong>FC 27</strong>. ¡Llevalo hoy y empezá a jugar al instante!</li>
+            <li>🚗 <strong>Preventa exclusiva de GTA 6 (PS5)</strong>. Asegurá tu copia antes que nadie y freezamos el precio.</li>
+            
+            🎃 🧟‍♂️ <strong>¡Arrancó el Mes del Terror!</strong> Durante todo Octubre activamos la promo especial de Resident Evil. Elegí tus 2 favoritos, combinalos como quieras y preparate para los sustos.
+
+          <li>🔥 🎮 <strong>¡¡LLUVIA DE PROMOS!!</strong>. Ya subimos las nuevas listas de octubre. Llevate 2 juegazos a elección desde $15.000. ¡Apurate que vuelan y la oferta termina el 21 de octubre!
+            </li> 
+            
+        </ul>
+    </div>
+<!-- Cuadro de Promo Halloween -->
+<div class="promo-halloween">
+    <h3 class="titulo-halloween">🎃 ¡EMPEZAMOS EL MES DE HALLOWEEN! <br> RESIDENT EVIL EN PROMOCIÓN! 🦇</h3>
+    <p class="precio-halloween">¡Llevate 2 por <strong>$20.000 primarios</strong> o <strong>$16.000 secundarios</strong>! Combinalos como quieras. PARA PS4 Y PS5.</p>
+    
+    <ul class="lista-juegos">
+        <li>RESIDENT EVIL 2 REMAKE</li>
+        <li>RESIDENT EVIL 3 REMAKE</li>
+        <li>RESIDENT EVIL 4 REMAKE</li>
+        <li>RESIDENT EVIL 5</li>
+        <li>RESIDENT EVIL 6</li>
+        <li>RESIDENT EVIL 7 BIOHAZARD</li>
+        <li>RESIDENT EVIL 8 VILLAGE</li>
+    </ul>
+
+    <!-- Botones del carrito -->
+    <div class="botones-carrito">
+        <button class="btn-agregar btn-primaria" onclick="agregarAlCarrito('Promo Resident Evil x2 Primaria', 20000)">Añadir en Primaria</button>
+        <button class="btn-agregar btn-secundaria" onclick="agregarAlCarrito('Promo Resident Evil x2 Secundaria', 16000)">Añadir en Secundaria</button>
+         </ul>
+    </div>
+</div>
+
+<!-- Promo 2x1 Lista de Octubre -->
+<div class="promo-combo-ps">
+    <div class="header-combo">
+        <h3>✨ ¡Nueva Promoción! ✨</h3>
+        <h2>¡LLEVATE 2 JUEGOS A ELECCIÓN!</h2>
+        
+        <div class="precios-combo">
+            <span class="precio-pri">PRIMARIOS: $15.000</span>
+            <span class="precio-sec">SECUNDARIOS: $10.000</span>
+        </div>
+        
+        <div class="alerta-fecha">⚠️ ¡Disponible hasta el 21 de octubre!</div>
+    </div>
+
+    <!-- Lista dividida en dos -->
+    <div class="lista-doble">
+        <ul class="columna-juegos">
+            <li>Mortal Kombat 11</li>
+            <li>Fallout 4</li>
+            <li>Metro Exodus</li>
+            <li>Unravel Two</li>
+            <li>La Tierra Media</li>
+            <li>Injustice 2</li>
+            <li>Batman Return To Arkham</li>
+            <li>Naruto To Boruto</li>
+            <li>Lego Jurassic World</li>
+            <li>Metro Redux</li>
+            <li>Burnout Paradise</li>
+            <li>Star Wars Squadrons</li>
+        </ul>
+        <ul class="columna-juegos">
+            <li>Inside</li>
+            <li>Wolfenstein The New Order</li>
+            <li>Monster Energy Supercross 6</li>
+            <li>Sniper Ghost Warrior</li>
+            <li>Unravel</li>
+            <li>Lego Worlds</li>
+            <li>Lego Harry Potter</li>
+            <li>Dead Island</li>
+            <li>MXGP 21</li>
+            <li>Overcooked</li>
+            <li>Lego Marvel Avengers</li>
+        </ul>
+    </div>
+
+    <!-- Botones del Carrito -->
+    <div style="display: flex; gap: 10px; justify-content: space-between;">
+        <button class="btn-agregar btn-primaria" style="flex: 1; padding: 12px; background-color: #ffd700; color: black; border: none; font-weight: bold; border-radius: 5px;" onclick="agregarAlCarrito('Promo 2 Juegos a elección Primarios', 15000)">Añadir 2 Primarios</button>
+        
+        <button class="btn-agregar btn-secundaria" style="flex: 1; padding: 12px; background-color: transparent; color: #00f0ff; border: 1px solid #00f0ff; font-weight: bold; border-radius: 5px;" onclick="agregarAlCarrito('Promo 2 Juegos a elección Secundarios', 10000)">Añadir 2 Secundarios</button>
+    </div>
+</div>
+
+<!-- Promo 2 Juegazos por $20.000 -->
+<div class="promo-combo-ps">
+    <div class="header-combo">
+        <h3>✨ ¡Nueva Promoción! ✨</h3>
+        <h2>¡LLEVATE 2 JUEGOS A ELECCIÓN!</h2>
+        
+        <div class="precios-combo">
+            <span class="precio-pri">PRIMARIOS: $20.000</span>
+            <span class="precio-sec">SECUNDARIOS: $15.000</span>
+        </div>
+        
+        <div class="alerta-fecha">⚠️ ¡Disponible hasta el 21 de octubre!</div>
+    </div>
+
+    <!-- Lista dividida en dos -->
+    <div class="lista-doble">
+        <ul class="columna-juegos">
+            <li>A Way Out</li>
+            <li>Mafia Definitive Edition</li>
+            <li>Hogwarts Legacy</li>
+            <li>Lego Star Wars Skywalker</li>
+            <li>The Quarry</li>
+            <li>Star Wars Jedi Fallen Order</li>
+            <li>Midnight Suns</li>
+            <li>Lego Harry Potter Collection</li>
+            <li>Borderlands 3</li>
+            <li>Kingdom Come Deliverance</li>
+            <li>Assetto Corsa Competizione</li>
+            <li>Terraria</li>
+            <li>Chivalry 2</li>
+            <li>Need For Speed Heat</li>
+        </ul>
+        <ul class="columna-juegos">
+            <li>Marvel Guardians of the Galaxy</li>
+            <li>Back 4 Blood</li>
+            <li>Need for Speed Rivals</li>
+            <li>Lego Marvel Collection</li>
+            <li>Human Fall Flat</li>
+            <li>Need for Speed Hot Pursuit</li>
+            <li>Saints Row</li>
+            <li>Borderlands GOTY</li>
+            <li>Resident Evil Revelations 1 + 2</li>
+            <li>Blasphemous 2</li>
+            <li>Jurassic World Evolution</li>
+            <li>Titanfall 2</li>
+            <li>F1 Manager 2024</li>
+            <li>The Evil Within Bundle</li>
+        </ul>
+    </div>
+
+    <!-- Botones del Carrito -->
+    <div style="display: flex; gap: 10px; justify-content: space-between;">
+        <button class="btn-agregar btn-primaria" style="flex: 1; padding: 12px; background-color: #ffd700; color: black; border: none; font-weight: bold; border-radius: 5px;" onclick="agregarAlCarrito('Promo 2 Juegazos a elección Primarios', 20000)">Añadir 2 Primarios</button>
+        
+        <button class="btn-agregar btn-secundaria" style="flex: 1; padding: 12px; background-color: transparent; color: #00f0ff; border: 1px solid #00f0ff; font-weight: bold; border-radius: 5px;" onclick="agregarAlCarrito('Promo 2 Juegazos a elección Secundarios', 15000)">Añadir 2 Secundarios</button>
+    </div>
+</div>
+
+<!-- Promo 2 Juegos por $27.000 -->
+<div class="promo-combo-ps">
+    <div class="header-combo">
+        <h3>✨ ¡Nueva Promoción! ✨</h3>
+        <h2>LLEVATE 2 JUEGOS A ELECCIÓN</h2>
+        
+        <div class="precios-combo">
+            <span class="precio-pri">PRIMARIOS: $27.000</span>
+            <span class="precio-sec">SECUNDARIOS: $23.000</span>
+        </div>
+        
+        <div class="alerta-fecha">⚠️ ¡Válido hasta el 21 de octubre!</div>
+    </div>
+
+    <!-- Lista dividida en dos -->
+    <div class="lista-doble">
+        <ul class="columna-juegos">
+            <li>Fallout 76</li>
+            <li>Spiderman GOTY</li>
+            <li>Resident Evil 7 Gold</li>
+            <li>Dragon Ball Fighter Z</li>
+            <li>Tekken 7</li>
+            <li>Sniper Elite 5</li>
+            <li>The Order 1886</li>
+            <li>Stranded Deep</li>
+            <li>Lego Bundle</li>
+            <li>Little Nightmares 2</li>
+            <li>MotoGP 25</li>
+            <li>Farming Simulator 17</li>
+            <li>It Takes Two</li>
+            <li>Mafia Trilogy</li>
+        </ul>
+        <ul class="columna-juegos">
+            <li>Metro Bundle</li>
+            <li>God of War 3 Remastered</li>
+            <li>Overcooked All You Can Eat</li>
+            <li>Dying Light 2</li>
+            <li>Sifu</li>
+            <li>Resident Evil 2</li>
+            <li>Resident Evil Triple Pack</li>
+            <li>Plants vs Zombies Replanted</li>
+            <li>Dirt 5</li>
+            <li>Jurassic World Evolution 2</li>
+            <li>Darksiders 2</li>
+            <li>F1 2021</li>
+            <li>FIFA 21</li>
+        </ul>
+    </div>
+
+    <!-- Botones del Carrito -->
+    <div style="display: flex; gap: 10px; justify-content: space-between;">
+        <button class="btn-agregar btn-primaria" style="flex: 1; padding: 12px; background-color: #ffd700; color: black; border: none; font-weight: bold; border-radius: 5px;" onclick="agregarAlCarrito('Promo 2 Juegos por $27.000 Primarios', 27000)">Añadir 2 Primarios</button>
+        
+        <button class="btn-agregar btn-secundaria" style="flex: 1; padding: 12px; background-color: transparent; color: #00f0ff; border: 1px solid #00f0ff; font-weight: bold; border-radius: 5px;" onclick="agregarAlCarrito('Promo 2 Juegos por $27.000 Secundarios', 23000)">Añadir 2 Secundarios</button>
+    </div>
+</div>
+
+
+    <main class="main-content">
+        <div class="grid-juegos">
+            
+            <article class="tarjeta-juego">
+                <div class="encabezado-juego">
+                    <h4>FC 27</h4>
+                    <span class="etiqueta">Promos</span>
+                </div>
+                <img src="https://i.ibb.co/0jCj8C1T/images-2.jpg" alt="FC 27 PS4" class="imagen-juego">
+                <div class="info-juego">
+                    <p class="precio">$46.000 CUENTA PRIMARIA</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('FC 27 Ps4 primaria', 46000)">Añadir al carrito</button>
+                </div>
+            </article>
+
+            <article class="tarjeta-juego">
+                <div class="encabezado-juego">
+                    <h4>FC 27 </h4>
+                    <span class="etiqueta">Promos</span>
+                </div>
+                <img src="https://i.ibb.co/1fFzCFF5/EA-SPORTS-FC27-publi.jpg" alt="FC 27 PS5" class="imagen-juego">
+                <div class="info-juego">
+                    <p class="precio">$38.000 SECUNDARIA </p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('FC27 Ps5 secundaria', 36000)">Añadir al carrito</button>
+                </div>
+            </article>
+            
+            <article class="tarjeta-juego">
+                <div class="encabezado-juego">
+                    <h4>PLAYSTATION PLUS ESSENTIAL 1 MES </h4>
+                    <span class="etiqueta" style="background-color: #e5c100; color: black;">PS PLUS</span>
+                </div>
+                <img src="https://i.ibb.co/DDSWfqwD/1131-producto-medidas-para-mercado-libre-2023-08-01t145447-464-791.jpg" alt="PS Plus" class="imagen-juego">
+                <div class="info-juego">
+                    <p class="precio">$12.000</p>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('PS PLAYSTATION PLUS ESSENTIAL 1 MES', 12000)">Añadir al carrito</button>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <button class="btn-flotante-carrito" onclick="abrirCarrito()">
+        🛒
+        <span class="contador-carrito" id="contador-items">0</span>
+    </button>
+
+    <div class="modal-carrito" id="modal-carrito">
+        <div class="contenido-modal">
+            <div class="cabecera-modal">
+                <h3>Tu Carrito</h3>
+                <button class="btn-cerrar-modal" onclick="cerrarCarrito()">✖</button>
+            </div>
+            
+            <ul class="lista-juegos-carrito" id="lista-carrito-visual">
+            </ul>
+
+            <div class="resumen-modal">
+                <span>Total a pagar:</span>
+                <span class="total-plata">$<span id="total-precio-visual">0</span></span>
+            </div>
+            
+            <button class="btn-comprar" onclick="enviarWhatsApp()">Confirmar por WhatsApp</button>
+        </div>
+    </div>
+
+    <script src="../carrito.js"></script>
+</body>
+
+</html>
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="footer-tienda ocultar-al-buscar">
+        <div class="footer-contenido">
+            
+            <div class="footer-logo">
+                <img src="https://i.ibb.co/JjVVGySW/1000991197-fotor-bg-remover-2026101515555.png" alt="Mundo Joystick Logo">
+                <p>Todo lo que tu PS4 y PS5 necesitan</p>
+            </div>
+
+            <div class="footer-seccion footer-contacto">
+                <h4>Nuestras Redes</h4>
+                <p style="color: #b0bec5; font-size: 0.9rem; margin-bottom: 12px; line-height: 1.4;">Seguinos para enterarte de los nuevos ingresos y promos exclusivas antes que nadie.</p>
+                
+                <!-- Botón de Instagram -->
+                <a href="https://instagram.com/" target="_blank" style="
+                    display: inline-flex; 
+                    align-items: center; 
+                    gap: 8px; 
+                    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); 
+                    color: white; 
+                    padding: 8px 18px; 
+                    border-radius: 25px; 
+                    text-decoration: none; 
+                    font-weight: bold; 
+                    font-size: 0.95rem;
+                    box-shadow: 0 4px 10px rgba(220, 39, 67, 0.3);
+                ">
+                    📸 Seguinos en Instagram
+                </a>
+            </div>
+
+            <div class="footer-seccion">
+                <h4>Categorías</h4>
+                <div class="footer-categorias">
+                    <a href="TODOS.html">Inicio</a>
+                    <a href="PS4.html">Juegos PS4</a>
+                    <a href="PS5.html">Juegos PS5</a>
+                    <a href="PS%20PLUS.html">PS Plus</a>
+                    <a href="PROMOS.html">Promos</a>
+                </div>
+            </div>
+
+            <div class="footer-pagos">
+                <h4>MÉTODOS DE PAGO Y SEGURIDAD</h4>
+                <div class="iconos-pagos">
+                    <img src="https://logospng.org/download/mastercard/logo-mastercard-2048.png" alt="Mastercard">
+                    <img src="https://logospng.org/download/visa/logo-visa-2048.png" alt="Visa">
+                   <img src="https://i.ibb.co/nNHsbyqj/images.png" alt="Mercado Pago" />
+
+                </div>
+                <div class="sello-seguridad">
+                    <span>🛡️</span> 100% SEGURO Y GARANTIZADO
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer-legal">
+            &copy; 2026 MUNDO JOYSTICK. Todos los derechos reservados.
+        </div>
+    </footer>
